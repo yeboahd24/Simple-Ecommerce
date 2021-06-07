@@ -1,3 +1,3 @@
 # Simple-Ecommerce
 
-<img scr="ecommerce.png" />
+<img scr="ecommerce.png"/>
