@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-imi)be&p#v65o-*f!vcq*x1ir1#46m%ll&e_n#zo36l5@5_hxg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['dytravello.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'E_Commerce.urls'
@@ -91,14 +91,11 @@ WSGI_APPLICATION = 'E_Commerce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'python3',
-
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
+
 
 
 # Password validation
@@ -139,7 +136,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = os.path.join(BASE_DIR , 'static'),
-STATIC_ROOT = os.path(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -152,7 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Strip Api
 
-STRIPE_PUB_KEY ='pk_test_51Hp1lrDclBQzaDqrJBPdymZcuNM6k9ogRvf1FFYqgK1rRyMVM6ScKbH6HXaTuMCjBxxjQ9I0wAOmf6r78FZYa0LR00chOElc7Z' 
+STRIPE_PUB_KEY ='pk_test_51Hp1lrDclBQzaDqrJBPdymZcuNM6k9ogRvf1FFYqgK1rRyMVM6ScKbH6HXaTuMCjBxxjQ9I0wAOmf6r78FZYa0LR00chOElc7Z'
 STRIPE_SECRET_KEY = 'sk_test_51Hp1lrDclBQzaDqrxovcIf81WLAR7AVCTZf7mlHBF55vtSnkAaCs8yeNyEmsEDL9INmz2JUhEl1yjRWVBwG3TPVN00wWXzexqw'
 LOGIN_REDIRECT_URL = 'vendor_admin'
 LOGOUT_REDIRECT_URL = 'frontpage'
@@ -163,6 +160,9 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'b66c13b8340f57'
 EMAIL_HOST_PASSWORD = 'd88a0bc8b4f9d2'
 EMAIL_PORT = '2525'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_EMAIL_FROM = 'LinuxShop <noreply@codewithstein.com>'
 
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'

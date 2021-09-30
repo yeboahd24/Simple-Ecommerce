@@ -1,4 +1,4 @@
-import stripe 
+import stripe
 
 from django.conf import settings
 from django.contrib import messages
@@ -57,7 +57,7 @@ def cart_detail(request):
         cart.remove(remove_from_cart)
 
         return redirect('cart')
-    
+
     if change_quantity:
         cart.add(change_quantity, quantity, True)
 

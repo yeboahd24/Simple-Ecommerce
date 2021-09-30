@@ -17,7 +17,7 @@ class Order(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-    
+
     def __str__(self):
         return self.first_name
 
@@ -27,10 +27,10 @@ class OrderItem(models.Model):
     vendor = models.ForeignKey(Vendor, related_name='items', on_delete=models.CASCADE)
     vendor_paid = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=8, decimal_places=2)
-    quantity = models.IntegerField(default=1)
-    
+    quantity = models.IntegerField(default=0)
+
     def __str__(self):
         return '%s' % self.id
-    
+
     def get_total_price(self):
         return self.price * self.quantity

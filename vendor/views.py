@@ -61,7 +61,7 @@ def add_product(request):
             return redirect('vendor_admin')
     else:
         form = ProductForm()
-    
+
     return render(request, 'vendor/add_product.html', {'form': form})
 
 @login_required
@@ -80,7 +80,7 @@ def edit_vendor(request):
             vendor.save()
 
             return redirect('vendor_admin')
-    
+
     return render(request, 'vendor/edit_vendor.html', {'vendor': vendor})
 
 def vendors(request):

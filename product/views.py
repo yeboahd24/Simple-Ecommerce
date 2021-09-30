@@ -26,7 +26,7 @@ def product(request, category_slug, product_slug):
         if form.is_valid():
             quantity = form.cleaned_data['quantity']
 
-            cart.add(product_id=product.id, quantity=quantity, update_quantity=False)
+            cart.add(product_id=product.id, quantity=quantity, update_quantity=True)
 
             messages.success(request, 'The product was added to the cart')
 

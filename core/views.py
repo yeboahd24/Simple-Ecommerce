@@ -7,7 +7,8 @@ from django.core.mail import send_mail
 def frontpage(request):
     newest_products = Product.objects.all()[0:8]
 
-    return render(request, 'core/frontpage.html', {'newest_products': newest_products})
+    return render(request, 'core/frontpage.html',
+                  {'newest_products': newest_products})
 
 
 def contact(request):
@@ -23,7 +24,7 @@ def contact(request):
             email = f"{cd['email']}"
 
             send_mail(subject, message, email, ['yeboahd24@gmail.com'])
-            sent = True
+            send = True
             return redirect('frontpage')
 
         else:
@@ -32,3 +33,5 @@ def contact(request):
     else:
         form = ContactForm()
     return render(request, 'contact/contact.html', {'form': form})
+
+
